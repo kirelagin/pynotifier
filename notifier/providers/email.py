@@ -4,8 +4,6 @@ charset.add_charset('utf-8', charset.QP, charset.QP, 'utf-8')
 import platform
 import smtplib
 
-import xdg.BaseDirectory as xdgb
-
 from notifier.provider import Provider
 
 
@@ -16,6 +14,8 @@ class EmailNotify(Provider):
         if not isinstance(addresses, list):
             addresses = [addresses]
         elif not addresses:
+            import xdg.BaseDirectory as xdgb
+
             p = xdgb.load_first_config('notifier', 'addresses')
             if p is not None:
                 with open(p, 'r') as f:

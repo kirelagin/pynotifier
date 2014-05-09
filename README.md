@@ -158,3 +158,9 @@ Custom notification providers
 * and provide `notify(self)` that reads `self.subject` and `self.text`.
 * See `PrintNotify` and `EmailNotify` for reference.
 * Don't forget to pass your custom provider to `init`!
+
+
+Requirements
+-------------
+
+* [pyxdg](https://freedesktop.org/www/Software/pyxdg/) for configuration (optional, used only to read defaults)
