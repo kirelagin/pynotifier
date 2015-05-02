@@ -36,8 +36,7 @@ class EmailNotify(Provider):
 
     def notify(self):
         msg = MIMEText(self.text, 'plain', 'utf-8')
-        for addr in self._addresses:
-            msg['To'] = addr
+        msg['To'] = ', '.join(self._addresses)
         msg['From'] = '{} <{}>'.format(self._sender, self._addr)
         msg['Subject'] = self.subject
         msg['X-Mailer'] = 'notify.py'
